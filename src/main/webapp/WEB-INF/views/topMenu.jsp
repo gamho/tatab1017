@@ -21,8 +21,6 @@
     <!-- jQuery -->
     <script src="resources/js/jquery-3.3.1.min.js"></script>
     
-    <!-- topMenu.js -->
-    <script src="resources/js/topMenu/topMenu.js"></script>
     </head>
     
     <body>   

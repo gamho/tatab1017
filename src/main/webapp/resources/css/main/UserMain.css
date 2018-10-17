@@ -213,16 +213,14 @@ a:hover
     height: 100%; /* Full height */
     overflow: hidden; /* disable scroll as it does not need to */
     background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: rgba(0,0,0,0); /* Black w/ opacity */
 }
 
 /* StickyNoteModal - content */
 .StickyNoteModalContent {
-    background-color: #fefefe;
     margin-left: 150px;
     margin-top: 100px;
     padding: 0px;
-    border: 1px solid #888;
     width: 1600px;
     height: 770px; /* Could be more or less, depending on screen size */
 }

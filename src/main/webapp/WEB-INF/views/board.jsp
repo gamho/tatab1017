@@ -22,8 +22,14 @@
     <!-- script 참조 -->
     <script src="resources/js/jquery-3.3.1.min.js"></script>
     <script src="resources/js/board/boardjs.js"></script>
+    <script src="resources/js/topMenu/topMenu.js"></script>
+    
     <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    
+    
+    <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
+    
     
     <style>
 	.board-background {
@@ -54,9 +60,9 @@
 					<jsp:include page="/WEB-INF/views/kanban_col.jsp"/>
 	                <!-- kanban-col end -->
 	                
-	                <div class="add-col-box">
-	                    <a href="#"><i class="fas fa-plus-circle add"></i></a>
+	                <div class="add-col-box" id="kanban-col-box">
 	                </div>
+	                    <a href="#"><i class="fas fa-plus-circle add"></i></a>
 	            </div>
 	            <!-- kanban 끝 -->
 	        </div>
