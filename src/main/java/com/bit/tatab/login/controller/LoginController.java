@@ -77,16 +77,20 @@ public class LoginController {
            
             // 코멘트 관련 정보 db에 추가
             loginService.mainCommentInsert(commentVO3);
-            session.setAttribute("mainTitle", commentVO3.getMain_title());
-            session.setAttribute("subTitle", commentVO3.getSub_title());
-            session.setAttribute("subComment", commentVO3.getSub_comment());
+            session.setAttribute("main_title", commentVO3.getMain_title());
+            session.setAttribute("sub_title", commentVO3.getSub_title());
+            session.setAttribute("sub_comment", commentVO3.getSub_comment());
             
             // 마이페이지 관련 기본 내용 삽입
             MyPageVO myPageVO2 = new MyPageVO(session.getAttribute("login_email").toString(),
             		session.getAttribute("login_name").toString(),
-            		"Nickname",
-            		"Date of Birth",
-            		"Motto");
+            		"별명",
+            		"생년월일",
+            		"모토",
+            		"학과/부서",
+            		"성별",
+            		"주소",
+            		"전화번호");
             
             // 마이페이지 관련 정보 db에 추가
             loginService.myPageInfoInsert(myPageVO2);
@@ -103,10 +107,10 @@ public class LoginController {
 
           // 코멘트 관련 세션 활용하는 작업 (원석) - 정보 있을 때!
           CommentVO commentVO2 = loginService.mainCommentFind(loginVO);
-          session.setAttribute("myPageVO", commentVO2);
-          /*session.setAttribute("mainTitle", commentVO2.getMain_title());
+          // session.setAttribute("commentVO", commentVO2);
+          session.setAttribute("mainTitle", commentVO2.getMain_title());
           session.setAttribute("subTitle", commentVO2.getSub_title());
-          session.setAttribute("subComment", commentVO2.getSub_comment());*/
+          session.setAttribute("subComment", commentVO2.getSub_comment());
           System.out.println("코멘트야 올라갔니? : " + commentVO2.toString());
           
           // 마이페이지 관련 세션 활용하는 작업 (원석) - 정보 있을 떄!
