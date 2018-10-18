@@ -144,19 +144,19 @@
                                 <div class="cardheader">
                                 	<img src="<c:url value="/resources/img/main/background2.jpeg" />"
  											style="background-size: cover; height: 135px; 
-    background-repeat: no-repeat;"/>
+  											background-repeat: no-repeat;"/>
                                 </div>
                                 <div class="avatar">
                                     <img src="<c:url value="/resources/img/main/profile.jpeg" />"/>
                                 </div>
                                 <div class="info">
                                     <div class="title">
-                                        <a target="_blank" href="https://scripteden.com/">송원석</a>
+                                        <a target="_blank" href="https://scripteden.com/"><c:out value="${ myPageVO.nickname }" /></a>
                                     </div>
-                                    <div class="desc">wonseok Song</div>
-                                    <div class="desc">1993.10.12</div>
-                                    <div class="desc">rkagh93@naver.com</div>
-                                    <h4>"Beat the Bit!"</h4>
+                                    <div class="desc"><c:out value="${ myPageVO.login_name }" /></div>
+                                    <div class="desc"><c:out value="${ myPageVO.dob }" /></div>
+                                    <div class="desc"><c:out value="${ myPageVO.login_email }" /></div>
+                                    <h4><c:out value="${ myPageVO.motto }" /></h4>
                                 </div>
                                 <div class="bottom">
                                     <a>
