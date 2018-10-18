@@ -1,13 +1,5 @@
 $(function () {
-    /*
-    var kanbanCol = $('.panel-body');
-    kanbanCol.css('max-height', (window.innerHeight - 150) + 'px');
-
-    var kanbanColCount = parseInt(kanbanCol.length);
-    $('.container-fluid').css('min-width', (kanbanColCount * 350) + 'px');
-*/
-//    draggableInit();
-
+	
     var state = 0;
     $('.kanban-head').click(function() {
     	console.log('state check: ' + state);
@@ -31,10 +23,41 @@ $(function () {
     });
     
     $('.add-task-box .add').click(function() {
-        console.log('task 추가 작업 수행')
+        console.log('task 추가 작업 수행');
     });
     
-    $('.add-col-box .add').click(function() {
-        console.log('col 추가 작업 수행')
+    var addColTag = '<div class="kanban-col round-border">'
+            + '<div class="kanban-head">'
+                + '<p>TODO'
+                    +'<img class="body-up-img" src="resources/img/board/sort-up.png">'
+                    +'<img class="body-down-img" src="resources/img/board/sort-down.png">'
+                +'</p>'
+            +'</div>'
+            + '<div class="kanban-body">'
+                /*+ '<jsp:include page="/WEB-INF/views/kanban_task.jsp"/>'*/
+                + '<div class="add-task-box">'
+                    + '<a href="#"><i class="fas fa-plus-circle add"></i></a>'
+                + '</div>'
+            + '</div>'
+        +'</div>';
+    
+
+    $('fa-plus-circle, .add').click(function() {
+        console.log('col 추가 작업 수행');
+        
+        var addCol = $(addColTag).hide().appendTo("#kanban-col-box");
+        
+        addCol.show("fade", 300);
+        /*
+        if( $('html').click(function(e) 
+        		{ if( !$(e.target).hasClass(addCol) )
+        		{ if( $(e.target)!=$('.kanban-col').last() ) { 
+        			alert('영역 밖입니다.'); 
+        			}
+        		}
+        ));
+        */	
+        console.log('col 추가 작업 수행 완료!');
+        
     });
 });
