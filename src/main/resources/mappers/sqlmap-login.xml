@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
- <mapper namespace="com.bit.tatab.main.dao.LoginDAO">
+ <mapper namespace="com.bit.tatab.login.dao.LoginDAO">
   
   <!-- 회원 로그인 정보 db 탐색 -->
   	<select id="loginInfoFind" parameterType="LoginVO" resultType="LoginVO">
@@ -38,4 +38,21 @@
     	insert into MAIN_COMMENT_T(no, login_email, main_title, sub_title, sub_comment)
    		values(seq_main_comment_t_no.nextVal, #{login_email}, #{main_title}, #{sub_title}, #{sub_comment})
     </insert>
+    
+    <!-- 마이페이지 관련 로그인 정보 db 탐색 -->
+    <select id="myPageInfoFind" parameterType="LoginVO" resultType="MyPageVO">
+    	select *
+    	from MY_PAGE_T
+    	where login_email = #{login_email}
+    </select>
+    
+    <!-- 마이페이지 관련 로그인 정보 db insert -->
+    <insert id="myPageInfoInsert" parameterType="MyPageVO">
+    	insert into MY_PAGE_T(login_email, login_name, nickname, dob, motto)
+    values (#{login_email}, #{login_name}, #{nickname}, #{dob}, #{motto})
+    </insert>
+    
+    
+    
+    
  </mapper>
