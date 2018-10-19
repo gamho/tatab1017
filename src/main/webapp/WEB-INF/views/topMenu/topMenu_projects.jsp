@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <!-- font awesome -->
@@ -17,18 +18,7 @@
             </form>
             
             <div id="wrapper">
-                <div id="list">
-                    <p>
-                        <i class="fas fa-bolt"></i>
-                        ABC
-                    </p>
-                </div>
-                <div id="list">
-                    <p>
-                        <i class="fas fa-bolt"></i>
-                        Tatab
-                    </p>
-                </div>
+           		<!-- proejctList ajax 들어간 자리 -->
             </div>
         </div>
     </body>

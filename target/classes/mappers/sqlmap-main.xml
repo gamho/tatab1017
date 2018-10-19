@@ -17,7 +17,8 @@
 
 	<!-- 프로젝트 List 조회 -->
 	<select id="selectAllProject" resultType="ProjectVO"> select project_name
-		from project_list_t where member_id = #{login_email} </select>
+		from project_list_t where member_id = #{login_email}
+		order by project_name </select>
 
 	<!-- 코멘트 관련 내용 db에 modify -->
 	<update id="modifyComment" parameterType="CommentVO">

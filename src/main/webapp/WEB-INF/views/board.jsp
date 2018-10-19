@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="resources/css/board/kanban_col_css.css">
     <link rel="stylesheet" type="text/css" href="resources/css/board/kanban_task_css.css">
     
+    
     <!-- Bootstrap -->
     <!-- 합쳐지고 최소화된 최신 CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -22,13 +23,25 @@
     <!-- script 참조 -->
     <script src="resources/js/jquery-3.3.1.min.js"></script>
     <script src="resources/js/board/boardjs.js"></script>
-    <script src="resources/js/topMenu/topMenu.js"></script>
+    <script src="resources/js/topMenu/topMenu.js?ver=1"></script>
     
     <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     
     
     <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
+    
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    
+    <!-- topMenu_projectManage.css-->
+    <link rel="stylesheet" type="text/css" href="resources/css/topMenu/topMenu_projectManage.css">
+    
+    <!-- topMenu_projects.css -->
+    <link rel="stylesheet" type="text/css" href="resources/css/topMenu/topMenu_projects.css">
+    
+    <!-- topMenu_activity.css -->
+    <link rel="stylesheet" type="text/css" href="resources/css/topMenu/topMenu_activity.css">
     
     
     <style>

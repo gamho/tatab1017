@@ -3,23 +3,31 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
-    <!-- font awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     
     <!-- topMenu.css -->
-    <link rel="stylesheet" type="text/css" href="resources/css/topMenu/topMenu.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/topMenu/topMenu.css?ver=1">
     
-    <!-- topMenu_projectManage.css-->
-    <link rel="stylesheet" type="text/css" href="resources/css/topMenu/topMenu_projectManage.css">
-    
-    <!-- topMenu_projects.css -->
-    <link rel="stylesheet" type="text/css" href="resources/css/topMenu/topMenu_projects.css">
-    
-    <!-- topMenu_activity.css -->
-    <link rel="stylesheet" type="text/css" href="resources/css/topMenu/topMenu_activity.css">
-    
-    <!-- jQuery -->
-    <script src="resources/js/jquery-3.3.1.min.js"></script>
+    <script>
+	    $.ajax({
+			url : "boardProjectList.do",
+			type : "post",
+	
+			success : function(data) {
+				
+				for(i=0; i<data.length; i++) {
+					/* console.log(data[i]); */
+					var tag1= '<div id="list"><p style="width:50px;"><i class="fas fa-bolt"></i>'+
+                    '<div id="projectName" style="font-size:25px;">';
+                    var tag2 = '</div></p></div>'
+				
+                    var tag = tag1+ data[i] + tag2;
+                    
+                    $(tag).hide().appendTo('#wrapper').show();
+				}
+				
+			}
+		})
+    </script>
     
     </head>
     
@@ -84,7 +92,6 @@
         
         <!-- projects Modal -->
         <div id="projectsModal" class="projectsmodal">
-           Modal content 
           <div class="projects-modal-content">
           	<jsp:include page="/WEB-INF/views/topMenu/topMenu_projects.jsp"></jsp:include>
           </div>
