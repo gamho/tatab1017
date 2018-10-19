@@ -8,11 +8,11 @@
     <link rel="shortcut icon" href="/resources/img/main/favicon.ico" >
     <link href="<c:url value="/resources/css/main/UserMain.css" />" rel="stylesheet">
     <!-- MyPage 관련 -->
-    <link href="<c:url value="/resources/css/main/MyPage.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/css/main/MyPageModal.css" />" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- MyPage 관련 끝 -->
     <!-- StickyNote 관련 -->
-    <link href="<c:url value="/resources/css/main/StickyNote.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/css/main/StickyNoteModal.css" />" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Gloria+Hallelujah' rel='stylesheet' type='text/css'>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
@@ -20,10 +20,10 @@
     <script src="<c:url value="/resources/js/main/StickyNote.js" />"></script>
     <!-- StickyNote 관련 끝 -->
     <!-- Registration 관련 -->
-    <link href="<c:url value="/resources/css/main/Registration.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/css/main/RegistrationModal.css" />" rel="stylesheet">
     <!-- Registration 관련 끝 -->
     <!-- MainComment 관련 -->
-    <link href="<c:url value="/resources/css/main/MainComment.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/css/main/MainCommentModal.css" />" rel="stylesheet">
     <!-- MainComment 관련 끝 -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Cedarville+Cursive|Gothic+A1" rel="stylesheet">

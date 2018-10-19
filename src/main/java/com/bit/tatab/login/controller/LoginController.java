@@ -47,7 +47,7 @@ public class LoginController {
       
         LoginVO loginVO = new LoginVO(googleId, name);
         
-        System.out.println(loginVO.toString());
+        System.out.println("리퀘스트로 받은 로그인 vo : " + loginVO.toString());
         
        
         //////
@@ -56,6 +56,7 @@ public class LoginController {
         // 세션객체 얻어오기
         HttpSession session = request.getSession();
         session.setAttribute("login_email", loginVO.getLoginEmail());
+        session.setAttribute("login_name", loginVO.getLoginName());
         System.out.println("login_email: " + session.getAttribute("login_email"));
 
         // 코멘트 관련 세션 활용하는 작업 (원석)
@@ -91,14 +92,17 @@ public class LoginController {
             		"성별",
             		"주소",
             		"전화번호");
+            System.out.println("내 정보야 잘 삽입됐니? : " + myPageVO2);
             
             // 마이페이지 관련 정보 db에 추가
             loginService.myPageInfoInsert(myPageVO2);
-            session.setAttribute("myPageVO", myPageVO2);
+           /* session.setAttribute("myPageVO", myPageVO2);
             session.setAttribute("login_name", myPageVO2.getLogin_name());
             session.setAttribute("nickname", myPageVO2.getNickname());
             session.setAttribute("dob", myPageVO2.getDob());
-            session.setAttribute("motto", myPageVO2.getMotto());
+            session.setAttribute("motto", myPageVO2.getMotto());*/
+            session.setAttribute("myPageVO", myPageVO2);
+            System.out.println("내 정보야 처음에 잘 삽입됐니? : " + myPageVO2);
             
             System.out.println("db에 로그인 정보 등록 완료");
             
@@ -116,7 +120,7 @@ public class LoginController {
           // 마이페이지 관련 세션 활용하는 작업 (원석) - 정보 있을 떄!
           MyPageVO myPageVO3 = loginService.myPageInfoFind(loginVO);
           session.setAttribute("myPageVO", myPageVO3);
-          System.out.println("내 정보야 올라갔니? : " + myPageVO3.toString());
+          System.out.println("내 정보야 올라갔니? : " + myPageVO3);
        } 
        
        // MyPage 관련 정보 

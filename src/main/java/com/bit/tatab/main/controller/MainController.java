@@ -41,9 +41,9 @@ public class MainController {
         String login_email = session.getAttribute("login_email").toString();
         
         // db에 있는 코멘트들 가져오기
- 		String mainTitle = session.getAttribute("mainTitle").toString();
- 		String subTitle = session.getAttribute("subTitle").toString();
- 		String subComment = session.getAttribute("subComment").toString();
+ 		String mainTitle = session.getAttribute("main_title").toString();
+ 		String subTitle = session.getAttribute("sub_title").toString();
+ 		String subComment = session.getAttribute("sub_comment").toString();
  		CommentVO commentVO = new CommentVO(login_email, mainTitle, subTitle, subComment);
         
 		ModelAndView mav = new ModelAndView("userMain");
