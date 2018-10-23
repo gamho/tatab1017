@@ -99,9 +99,9 @@ public class MainController {
 		CommentVO commentVO = new CommentVO(login_email, mainTitle, subTitle, subComment);
 		
 		// 코멘트 세션에 추가
-		session.setAttribute("mainTitle", commentVO.getMain_title());
-		session.setAttribute("subTitle", commentVO.getSub_title());
-		session.setAttribute("subComment", commentVO.getSub_comment());
+		session.setAttribute("main_title", commentVO.getMain_title());
+		session.setAttribute("sub_title", commentVO.getSub_title());
+		session.setAttribute("sub_comment", commentVO.getSub_comment());
 		
 		// 코멘트 기입 내용 db에 추가
 		mainService.modifyComment(commentVO);

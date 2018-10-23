@@ -48,8 +48,8 @@
     
     <!-- 마이페이지 관련 로그인 정보 db insert -->
     <insert id="myPageInfoInsert" parameterType="MyPageVO">
-    	insert into MY_PAGE_T(login_email, login_name, nickname, dob, motto)
-    values (#{login_email}, #{login_name}, #{nickname}, #{dob}, #{motto})
+    	insert into MY_PAGE_T(login_email, login_name, nickname, dob, motto, department, gender, address, phone_number)
+    values (#{login_email}, #{login_name}, #{nickname}, #{dob}, #{motto}, #{department}, #{gender}, #{address}, #{phone_number})
     </insert>
     
     

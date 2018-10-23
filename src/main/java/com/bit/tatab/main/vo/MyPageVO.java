@@ -28,6 +28,18 @@ public class MyPageVO {
 		this.address = address;
 		this.phone_number = phone_number;
 	}
+	public MyPageVO(String login_email, String login_name, String nickname, String dob, String motto, String department,
+			String address, String phone_number) {
+		super();
+		this.login_email = login_email;
+		this.login_name = login_name;
+		this.nickname = nickname;
+		this.dob = dob;
+		this.motto = motto;
+		this.department = department;
+		this.address = address;
+		this.phone_number = phone_number;
+	}
 	public MyPageVO(String login_email, String login_name, String nickname, String dob, String motto) {
 		super();
 		this.login_email = login_email;
