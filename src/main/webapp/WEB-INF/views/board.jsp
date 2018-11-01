@@ -24,6 +24,7 @@
     <script src="resources/js/jquery-3.3.1.min.js"></script>
     <script src="resources/js/board/boardjs.js"></script>
     <script src="resources/js/topMenu/topMenu.js?ver=1"></script>
+    <script src="resources/js/topMenu/topMenu_projects.js?ver=1"></script>
     
     <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
@@ -34,6 +35,8 @@
     <!-- font awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     
+    <!-- topMenu.css -->
+    <link rel="stylesheet" type="text/css" href="resources/css/topMenu/topMenu.css?ver=1">
     <!-- topMenu_projectManage.css-->
     <link rel="stylesheet" type="text/css" href="resources/css/topMenu/topMenu_projectManage.css">
     

@@ -13,12 +13,39 @@
 
     <!-- topMenu_projectMenu.js -->    
     <script src="resources/js/topMenu/topMenu_projectManage.js"></script>
+    
+    <script>
+    	$(document).ready(function() {
+    		// projectManage 데이터 호출
+    		$('#infoBtn').click(function() {
+    			$.ajax({
+        			url : "boardProjectManage.do",
+        			type : "post",
+        			 
+        			success : function(data) {
+        				// console.log(data);
+        				
+        				$('.projectTitle').html(data.project_name);
+        				$('.projectNames').attr("value", data.project_name);
+        				$('.projectDescription').attr("value", data.project_comment);
+        			}
+    			})
+    		});
+    		
+    		
+    	});
+    	// done 버튼 클릭시 projectVO update
+		function update() {
+			$('.updateProjectVO').submit();
+			
+		}
+    </script>
        
     <body>
         <div class="manageWrapper">
                    <div class="title">
                        <div class="name">
-                           <a>ABC</a>
+                           <a class="projectTitle"></a>
                        </div>
                        <div class="close">
                            <a><i class="fas fa-times"></i></a>
@@ -36,24 +63,23 @@
                     
                    <!-- Overview 메뉴-->
                    <div class="content overview">
-                       <div class="pj">
-                           <div class="pjName">
-                               Project name
-                           </div>
-                           <div class="pjInput">
-                               <form>
-                                   <input type="text" style="width:300px; height:50px;" placeholder="ABC">
-                               </form>
-                           </div>
-                       </div>
-
-                       <div class="dpt">
-                           <div class="dptName">
-                               Project Discription
-                           </div>
-                           <div class="dptdpt">
-                              <input type="text" style="width:300px; height:200px;" placeholder="DB에서 가져올 내용">
-                           </div>
+						<form method="post" class="updateProjectVO" action="updateProjectVO.do">
+	                       <div class="pj">
+	                           <div class="pjName">
+	                               Project name
+	                           </div>
+	                           <div class="pjInput">
+	                                   <input class="projectNames" name="projectName" type="text" style="width:300px; height:50px;" placeholder="">
+	                           </div>
+	                       </div>
+	                       <div class="dpt">
+	                           <div class="dptName">
+	                               Project Discription
+	                           </div>
+	                           <div class="dptdpt">
+	                              <input class="projectDescription" name="projectDescription" type="text" style="width:300px; height:200px;" placeholder="">
+	                       </div>
+	               		</form>	        
                        </div>
                    </div>
                    
@@ -115,7 +141,7 @@
                    <div class="footer">
                        <div>
                            <div class="done">
-                               <a>done</a>
+                               <a onclick="update()">done</a>
                            </div>
                        </div>
                    </div>

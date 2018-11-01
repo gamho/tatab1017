@@ -30,12 +30,24 @@
     <script src="<c:url value="/resources/js/main/UserMain.js" />"></script>
     
     <style>
-.card.hovercard .cardheader {
-	    background-image: url('resources/img/main/background2.jpeg') no-repeat;
-	    background-size: cover;
-	    height: 135px;
-	}
+	.card.hovercard .cardheader {
+		    background-image: url('resources/img/main/background2.jpeg') no-repeat;
+		    background-size: cover;
+		    height: 135px;
+		}
     </style>
+    
+    <script>
+    	function goBoard(a) {
+			var projectName = a;
+    		console.log(projectName);
+    		
+    		$('.hiddenForm').val(projectName);
+			$('.hiddenProjectName').submit();
+			return false;
+    	}
+    </script>
+    
 </head>
 <body>
     <!-- 제일 상위 등급 div -->
@@ -83,12 +95,19 @@
 	                        <!-- 플젝 아이콘 끝 -->
 	                        <!-- 플젝명 -->
 	                        <div class="listName">
-	                            <a href="/tatab/board.do"><h3>${projectName}</h3></a>
+	                            <a id="projectNames" onclick="goBoard('${projectName}')"><h3>${projectName}</h3></a>
 	                        </div>
 	                        <!-- 플잭명 끝 -->
 	                    </div>
                		</c:forEach>
-                    <!-- 플젝 리스트 끝-->
+               		<!-- 플젝 리스트 끝-->
+               		
+               		<!-- 프로젝트 list submit -->
+		            <form method="post" class="hiddenProjectName" action="board.do">
+		            	<input class="hiddenForm" type="hidden" name="projectNames">
+		            </form>
+		            <!-- 프로젝트 list submit -->
+                    
                     <!-- 새 플젝 추가 -->
                     <div class="addProject">
                             <a id="RegistrationModalBtn"><i class="fas fa-plus-circle"> 새 프로젝트 추가</i></a>

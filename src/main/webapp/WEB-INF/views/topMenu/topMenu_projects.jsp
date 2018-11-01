@@ -8,13 +8,50 @@
    
     <!-- topMenu_projects.css -->
     <link rel="stylesheet" type="text/css" href="resources/css/topMenu/topMenu_projects.css">
-      
+     
+    <head>
+    	<script>
+		$(document).ready(function() {
+			// 프로젝트 버튼 클릭시 자신의 프로젝트 호출 
+			$('#projectsBtn').click(function() {
+				console.log("click");
+				$.ajax({
+					url : "boardProjectList.do",
+					type : "post",
+			
+					success : function(data) {
+						$('#wrapper').empty();
+						for(i=0; i<data.length; i++) {
+							/* console.log(data[i]); */
+							var tag1= '<div id="list" class="list['+i+']"><p style="width:50px;"><i class="fas fa-bolt"></i>'+
+		                    '<div class="projectName" style="font-size:25px;">';
+		                    var tag2 = '</div></p></div>'
+						
+		                    var tag = tag1+ data[i] + tag2;
+		                    
+		                    
+		                    $(tag).hide().appendTo('#wrapper').show();
+						}
+					}
+				});
+			});
+			
+			// 프로젝트 검색
+			$('#searchProject').keyup(function() {
+				var input = $(this).val();
+				$('#wrapper > div').hide();
+				$(".projectName:contains('"+ input +"')").parent().show();
+			})
+		})
+    </script>
+    </head>
+     
     <body>
         <div>
             <h2>Projects</h2>
             
             <form>
-                <input type="text" placeholder="Search Project">
+                <input id="searchProject" type="text" placeholder="Search Project">
             </form>
             
             <div id="wrapper">
