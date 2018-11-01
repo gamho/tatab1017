@@ -26,6 +26,8 @@ public class BoardController {
 		
 		System.out.println("board 프로젝트 이름 "+projectName);
 		
+		mav.addObject("projectName", projectName);
+		
 		return mav;
 	}
 }
