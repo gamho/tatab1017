@@ -78,7 +78,7 @@
 <body>
     <!-- 제일 상위 등급 div -->
     <div id="mainWrapper">
-        <!-- 배경이미지 -->
+        <!-- 배경이미지 파일 -->
         <div class="background">
         	<c:choose>
         		<c:when test="${empty backgroundImage.save_name}">
