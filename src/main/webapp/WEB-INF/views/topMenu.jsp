@@ -16,7 +16,7 @@
                    
                     <i class="fas fa-bolt"></i>
                     &nbsp; 
-                    ABC
+                    ${projectName }
                     &nbsp; 
                     <i class="fas fa-angle-down"></i>
                 </td>

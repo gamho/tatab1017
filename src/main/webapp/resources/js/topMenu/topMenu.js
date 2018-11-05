@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+
 	// Get the modal
 	var projectsModal = document.getElementById('projectsModal');
 	var manageModal = document.getElementById('manageModal');

@@ -22,7 +22,8 @@
 					success : function(data) {
 						$('#wrapper').empty();
 						for(i=0; i<data.length; i++) {
-							/* console.log(data[i]); */
+							console.log("ooo"+data[i]+""); 
+							
 							var tag1= '<div id="list" class="list['+i+']"><p style="width:50px;"><i class="fas fa-bolt"></i>'+
 		                    '<div class="projectName" style="font-size:25px;">';
 		                    var tag2 = '</div></p></div>'
@@ -42,8 +43,19 @@
 				$('#wrapper > div').hide();
 				$(".projectName:contains('"+ input +"')").parent().show();
 			})
+			
+			// 동적으로 처리할때 document.on (이벤트, 선택자, 함수(무명함수))
+			// 여기서 $(this) 는 선택된 div를 바로 가르킨다 그 하위에서 찾기
+			$(document).on('click', '#list', function(){
+				var projectName = $(this).find('.projectName').text();
+	    		console.log(projectName);
+	    		
+	    		$('.hiddenForm').val(projectName);
+				$('.hiddenProjectName').submit();
+				return false;
+			})
 		})
-    </script>
+    	</script>
     </head>
      
     <body>
@@ -58,5 +70,11 @@
            		<!-- proejctList ajax 들어간 자리 -->
             </div>
         </div>
+        
+        <!-- 프로젝트 list submit -->
+	    <form method="post" class="hiddenProjectName" action="board.do">
+	    	<input class="hiddenForm" type="hidden" name="projectNames">
+	    </form>
+		<!-- 프로젝트 list submit -->
     </body>
 </html>
