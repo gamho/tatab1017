@@ -69,19 +69,7 @@
 	    <!-- topMenu include start -->
 	    <jsp:include page="/WEB-INF/views/topMenu.jsp"/>
 	    <!-- topMenu include end -->    
-	        <div class="kanban-container2">
-	           <!-- kanban 시작 -->
-	            <div class="kanban-board">
-	               <!-- kanban-col section start -->
-					<jsp:include page="/WEB-INF/views/kanban_col.jsp"/>
-	                <!-- kanban-col end -->
-	                
-	                <div class="add-col-box" id="kanban-col-box">
-	                </div>
-	                    <a href="#"><i class="fas fa-plus-circle add"></i></a>
-	            </div>
-	            <!-- kanban 끝 -->
-	        </div>
+	        
 	</div>	       
 	<!-- board-background end -->
     </body>

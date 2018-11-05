@@ -21,13 +21,15 @@ public class MainServiceImpl implements MainService{
 	// 프로젝트 생성
 	@Override
 	public void insert(ProjectVO project, String login_email) {
-		mainDao.insert(project, login_email);
+		mainDao.insert(project);
+		mainDao.insertMember(project, login_email);
+		
 	}
 
 	// 해당 id가 속한 프로젝트 리스트 불러오기
 	@Override
-	public List<String> selectAllProject(String login_email) {
-		List<String> projectList = mainDao.selectAllProject(login_email);
+	public List<ProjectVO> selectAllProject(String login_email) {
+		List<ProjectVO> projectList = mainDao.selectAllProject(login_email);
 		return projectList;
 	}
 

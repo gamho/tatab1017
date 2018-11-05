@@ -22,14 +22,12 @@
 					success : function(data) {
 						$('#wrapper').empty();
 						for(i=0; i<data.length; i++) {
-							console.log("ooo"+data[i]+""); 
-							
+							console.log(data)
 							var tag1= '<div id="list" class="list['+i+']"><p style="width:50px;"><i class="fas fa-bolt"></i>'+
-		                    '<div class="projectName" style="font-size:25px;">';
+		                    '<div class="projectName" style="font-size:25px;">' +'<input class="project_no" type="hidden" name="project_no" value="'+ data[i].project_no+'">' ;
 		                    var tag2 = '</div></p></div>'
 						
-		                    var tag = tag1+ data[i] + tag2;
-		                    
+		                    var tag = tag1+ data[i].project_name + tag2;
 		                    
 		                    $(tag).hide().appendTo('#wrapper').show();
 						}
@@ -48,9 +46,11 @@
 			// 여기서 $(this) 는 선택된 div를 바로 가르킨다 그 하위에서 찾기
 			$(document).on('click', '#list', function(){
 				var projectName = $(this).find('.projectName').text();
-	    		console.log(projectName);
+				var projectNo = $(this).find('.project_no').val();
+	    		alert(projectNo);
 	    		
-	    		$('.hiddenForm').val(projectName);
+	    		$('.project_no').val(projectNo);
+	    		$('.projectName').val(projectName);
 				$('.hiddenProjectName').submit();
 				return false;
 			})
@@ -73,7 +73,8 @@
         
         <!-- 프로젝트 list submit -->
 	    <form method="post" class="hiddenProjectName" action="board.do">
-	    	<input class="hiddenForm" type="hidden" name="projectNames">
+	    	<input class="projectName" type="hidden" name="projectName">
+	    	<input class="project_no" type="hidden" name="project_no">
 	    </form>
 		<!-- 프로젝트 list submit -->
     </body>

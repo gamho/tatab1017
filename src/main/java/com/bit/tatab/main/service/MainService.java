@@ -14,6 +14,6 @@ public interface MainService {
 	public void insert(ProjectVO project, String login_email);
 		
 	// 해당 id가 속한 프로젝트 리스트 불러오기
-	public List<String> selectAllProject(String login_email);
+	public List<ProjectVO> selectAllProject(String login_email);
 	
 }

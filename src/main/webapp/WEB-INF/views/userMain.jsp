@@ -38,11 +38,13 @@
     </style>
     
     <script>
-    	function goBoard(a) {
+    	function goBoard(a,b) {
 			var projectName = a;
+			var projectNo = b;
     		console.log(projectName);
     		
-    		$('.hiddenForm').val(projectName);
+    		$('.projectName').val(a);
+    		$('.project_no').val(b);
 			$('.hiddenProjectName').submit();
 			return false;
     	}
@@ -95,7 +97,7 @@
 	                        <!-- 플젝 아이콘 끝 -->
 	                        <!-- 플젝명 -->
 	                        <div class="listName">
-	                            <a id="projectNames" onclick="goBoard('${projectName}')"><h3>${projectName}</h3></a>
+	                            <a id="projectNames" onclick="goBoard('${projectName.project_name}', '${projectName.project_no} ')"><h3>${projectName.project_name}</h3></a>
 	                        </div>
 	                        <!-- 플잭명 끝 -->
 	                    </div>
@@ -104,7 +106,8 @@
                		
                		<!-- 프로젝트 list submit -->
 		            <form method="post" class="hiddenProjectName" action="board.do">
-		            	<input class="hiddenForm" type="hidden" name="projectNames">
+		            	<input class="projectName" type="hidden" name="projectName">
+		            	<input class="project_no" type="hidden" name="project_no">
 		            </form>
 		            <!-- 프로젝트 list submit -->
                     

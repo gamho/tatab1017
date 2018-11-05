@@ -49,7 +49,7 @@ public class MainController {
 		ModelAndView mav = new ModelAndView("userMain");
 		
 		// project list 불러오기
-		List<String> projectList = mainService.selectAllProject(login_email);
+		List<ProjectVO> projectList = mainService.selectAllProject(login_email);
 	
 		mav.addObject("projectList", projectList);
 		mav.addObject("commentVO", commentVO);
@@ -77,6 +77,7 @@ public class MainController {
 		String login_email = session.getAttribute("login_email").toString();
 
 		mainService.insert(projectVO, login_email);
+//		mainService.insertMember(projectVO);
 		return "redirect:/userMain.do";
 	}
 

@@ -28,7 +28,7 @@
          <property name="password" value="hr"/>
       </bean>      
      
-       <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
+       <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
          <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
       </bean> 
       

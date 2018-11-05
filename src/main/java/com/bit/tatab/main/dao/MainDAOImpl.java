@@ -22,37 +22,31 @@ public class MainDAOImpl implements MainDAO {
 	private SqlSession sqlSession;
 
 	@Override
-	public void insert(ProjectVO project, String login_email) {
-		
-		// PRJ_T ??insert (register)
+	public void insert(ProjectVO project) {
 		sqlSession.insert("insert", project);
-		
-		// PROJECT_LIST_T ??insert
-		String name = project.getProject_name();
-		System.out.println("name : " + name + "email  : " + login_email);
-
-		Map<String, Object> param = new HashMap<String, Object>();
-		param.put("name", name);
-		param.put("login_email", login_email);
-		
-		sqlSession.insert("insert_prj_list_t", param );
+	}
 	
+	@Override
+	public void insertMember(ProjectVO project, String login_email) {
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("project", project);
+		param.put("login_email", login_email);
+		sqlSession.insert("insert_prj_member_t", param);
 	}
 
 	@Override
-	public List<String> selectAllProject(String login_email) {
+	public List<ProjectVO> selectAllProject(String login_email) {
 		
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("login_email", login_email);
 		
 		List<ProjectVO> projectList = sqlSession.selectList("selectAllProject", param);
-		List<String> projectNameList = new ArrayList<String>();
+		List<ProjectVO> projectNameList = new ArrayList<ProjectVO>();
 		
 		for(int i=0; i<projectList.size(); i++) {
-			projectNameList.add( projectList.get(i).getProject_name());
+			projectNameList.add(projectList.get(i));
 		}
 		
-		System.out.println("dao selectAllProject()" + projectNameList);
 		return projectNameList;
 	}
 
