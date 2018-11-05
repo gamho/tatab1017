@@ -36,5 +36,10 @@
 		values(#{login_email}, #{ori_name}, #{save_name})
 	</insert>
 
-
+	<!-- 배경 이미지 불러오기 -->
+	<select id="findBackgroundImage" parameterType="String" resultType="MainBackgroundVO">
+		select * from user_bg_custom_t
+		where login_email = #{login_email}
+	</select>
+	
 </mapper>

@@ -66,6 +66,12 @@ public class MainDAOImpl implements MainDAO {
 	public void modifyBackgroundImage(MainBackgroundVO mainBackgroundVO) {
 		sqlSession.insert("modifyBackgroundImage", mainBackgroundVO);
 	}
+
+	@Override
+	public MainBackgroundVO findBackgroundImage(String login_email) {
+		MainBackgroundVO backgroundImage = sqlSession.selectOne("findBackgroundImage", login_email);
+		return backgroundImage;
+	}
 	
 	
 

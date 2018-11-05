@@ -19,5 +19,8 @@ public interface MainService {
 
 	// 배경 이미지 업로드
 	public void modifyBackgroundImage(MainBackgroundVO mainBackgroundVO);
+
+	// 배경 이미지 불러오기
+	public MainBackgroundVO findBackgroundImage(String login_email);
 	
 }

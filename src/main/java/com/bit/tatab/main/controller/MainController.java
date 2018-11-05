@@ -148,12 +148,19 @@ public class MainController {
 			
 			// 코멘트 세션에 추가 - 필요 시 추가
 			
-			// 코멘트 기입 내용 db에 추가
+			// 배경이미지 내용 db에 추가
 			mainService.modifyBackgroundImage(mainBackgroundVO);
-		
-			System.out.println("db 등록 완료!");
+			// 배경이미지 db에서 가져오기
+			MainBackgroundVO backgroundImage = mainService.findBackgroundImage(login_email);
+			System.out.println("backgroundImage : " + backgroundImage.getOri_name());
+			System.out.println("save name : " + backgroundImage.getSave_name());
+			System.out.println("배경이미지 db 업데이트 완료!");
 			
-			ModelAndView mav = new ModelAndView("redirect:/userMain.do");
+			// 배경이미지 db에 출력
+			
+			ModelAndView mav = new ModelAndView("uploadCome");
+			mav.addObject("backgroundImage", backgroundImage);
+			System.out.println("save name 2 : " + backgroundImage.getSave_name());
 			
 			return mav;
 			

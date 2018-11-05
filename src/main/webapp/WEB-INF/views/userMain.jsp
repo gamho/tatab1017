@@ -30,7 +30,7 @@
     <!-- BackgroundImage 관련 끝 -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Cedarville+Cursive|Gothic+A1" rel="stylesheet">
-    <script src="<c:url value="/resources/js/main/UserMain.js?var=1" />"></script>
+    <script src="<c:url value="/resources/js/main/UserMain.js?var=2" />"></script>
     
     <style>
 	.card.hovercard .cardheader {
@@ -49,6 +49,25 @@
 			$('.hiddenProjectName').submit();
 			return false;
     	}
+    	  
+        // 파일 정책위반 테스트 액션
+        function fileCheck(){
+            console.log('파일체크 시작!!');
+            var fileNm = $('#file').val();
+            console.log(fileNm);
+
+               if (fileNm != "") {
+                      
+                  var ext = fileNm.slice(fileNm.lastIndexOf(".") + 1).toLowerCase();
+                      
+                  if (!(ext == "gif" || ext == "jpg" || ext == "png")) {
+                      alert("이미지파일 (.jpg, .png, .gif ) 만 업로드 가능합니다.");
+                      return false;
+                  }
+               return true;
+               }
+         }
+        
     </script>
     
 <!--     <meta http-equiv="Cache-Control" content="no-cache"/> -->
@@ -61,7 +80,14 @@
     <div id="mainWrapper">
         <!-- 배경이미지 -->
         <div class="background">
-            <img src="https://t1.daumcdn.net/cfile/tistory/195822124CECE3C32C">
+        	<c:choose>
+        		<c:when test="${empty backgroundImage.save_name}">
+        			<img src="https://t1.daumcdn.net/cfile/tistory/195822124CECE3C32C">
+        		</c:when>
+        		<c:otherwise>
+        			<img src="${pageContext.request.contextPath}/img/${backgroundImage.save_name}">
+        		</c:otherwise>
+        	</c:choose>
         </div>
         <!-- 배경이미지 끝 -->
         <!-- 배경이미지 제외 맨 위 div -->
@@ -277,10 +303,11 @@
             <div class="BackgroundImageModalContent">
                 <div class="container">
                     <form id="contact" action="modifyBackgroundImage.do" method="post"
-                        enctype="multipart/form-data">
+                        enctype="multipart/form-data" onsubmit = "return fileCheck()">
                         <fieldset class="form-group">
                             <h3>배경이미지 변환</h3>
-                            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="file">
+                            <input type="file" class="form-control-file" id="file" name="file"
+                            accept="image/gif, image/jpeg, image/png"> <!-- accept : 이미지파일만 할 수 있도록! -->
                           </fieldset>
                         <fieldset id="buttons">
                             <input type="submit" class="btn btn-primary" value="수정">

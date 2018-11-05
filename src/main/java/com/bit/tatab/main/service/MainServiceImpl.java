@@ -43,6 +43,15 @@ public class MainServiceImpl implements MainService{
 		mainDao.modifyBackgroundImage(mainBackgroundVO);
 		
 	}
+
+	@Override
+	public MainBackgroundVO findBackgroundImage(String login_email) {
+		MainBackgroundVO backgroundImage = mainDao.findBackgroundImage(login_email);
+		return backgroundImage;
+		
+	}
+	
+	
  
 	
 
