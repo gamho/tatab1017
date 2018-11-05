@@ -99,7 +99,7 @@
 	                        <div class="listName">
 	                            <a id="projectNames" onclick="goBoard('${projectName.project_name}', '${projectName.project_no} ')"><h3>${projectName.project_name}</h3></a>
 	                        </div>
-	                        <!-- 플잭명 끝 -->
+	                        <!-- 플잭명 끝  -->
 	                    </div>
                		</c:forEach>
                		<!-- 플젝 리스트 끝-->
