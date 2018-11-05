@@ -41,9 +41,9 @@ public class MainController {
         String login_email = session.getAttribute("login_email").toString();
         
         // db에 있는 코멘트들 가져오기
- 		String mainTitle = session.getAttribute("mainTitle").toString();
- 		String subTitle = session.getAttribute("subTitle").toString();
- 		String subComment = session.getAttribute("subComment").toString();
+ 		String mainTitle = session.getAttribute("main_title").toString();
+ 		String subTitle = session.getAttribute("sub_title").toString();
+ 		String subComment = session.getAttribute("sub_comment").toString();
  		CommentVO commentVO = new CommentVO(login_email, mainTitle, subTitle, subComment);
         
 		ModelAndView mav = new ModelAndView("userMain");
@@ -99,9 +99,9 @@ public class MainController {
 		CommentVO commentVO = new CommentVO(login_email, mainTitle, subTitle, subComment);
 		
 		// 코멘트 세션에 추가
-		session.setAttribute("mainTitle", commentVO.getMain_title());
-		session.setAttribute("subTitle", commentVO.getSub_title());
-		session.setAttribute("subComment", commentVO.getSub_comment());
+		session.setAttribute("main_title", commentVO.getMain_title());
+		session.setAttribute("sub_title", commentVO.getSub_title());
+		session.setAttribute("sub_comment", commentVO.getSub_comment());
 		
 		// 코멘트 기입 내용 db에 추가
 		mainService.modifyComment(commentVO);

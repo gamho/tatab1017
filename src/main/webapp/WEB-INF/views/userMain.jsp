@@ -8,11 +8,11 @@
     <link rel="shortcut icon" href="/resources/img/main/favicon.ico" >
     <link href="<c:url value="/resources/css/main/UserMain.css" />" rel="stylesheet">
     <!-- MyPage 관련 -->
-    <link href="<c:url value="/resources/css/main/MyPage.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/css/main/MyPageModal.css" />" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- MyPage 관련 끝 -->
     <!-- StickyNote 관련 -->
-    <link href="<c:url value="/resources/css/main/StickyNote.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/css/main/StickyNoteModal.css" />" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Gloria+Hallelujah' rel='stylesheet' type='text/css'>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
@@ -20,22 +20,34 @@
     <script src="<c:url value="/resources/js/main/StickyNote.js" />"></script>
     <!-- StickyNote 관련 끝 -->
     <!-- Registration 관련 -->
-    <link href="<c:url value="/resources/css/main/Registration.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/css/main/RegistrationModal.css" />" rel="stylesheet">
     <!-- Registration 관련 끝 -->
     <!-- MainComment 관련 -->
-    <link href="<c:url value="/resources/css/main/MainComment.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/css/main/MainCommentModal.css" />" rel="stylesheet">
     <!-- MainComment 관련 끝 -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Cedarville+Cursive|Gothic+A1" rel="stylesheet">
     <script src="<c:url value="/resources/js/main/UserMain.js" />"></script>
     
     <style>
-.card.hovercard .cardheader {
-	    background-image: url('resources/img/main/background2.jpeg') no-repeat;
-	    background-size: cover;
-	    height: 135px;
-	}
+	.card.hovercard .cardheader {
+		    background-image: url('resources/img/main/background2.jpeg') no-repeat;
+		    background-size: cover;
+		    height: 135px;
+		}
     </style>
+    
+    <script>
+    	function goBoard(a) {
+			var projectName = a;
+    		console.log(projectName);
+    		
+    		$('.hiddenForm').val(projectName);
+			$('.hiddenProjectName').submit();
+			return false;
+    	}
+    </script>
+    
 </head>
 <body>
     <!-- 제일 상위 등급 div -->
@@ -83,12 +95,19 @@
 	                        <!-- 플젝 아이콘 끝 -->
 	                        <!-- 플젝명 -->
 	                        <div class="listName">
-	                            <a href="/tatab/board.do"><h3>${projectName}</h3></a>
+	                            <a id="projectNames" onclick="goBoard('${projectName}')"><h3>${projectName}</h3></a>
 	                        </div>
 	                        <!-- 플잭명 끝 -->
 	                    </div>
                		</c:forEach>
-                    <!-- 플젝 리스트 끝-->
+               		<!-- 플젝 리스트 끝-->
+               		
+               		<!-- 프로젝트 list submit -->
+		            <form method="post" class="hiddenProjectName" action="board.do">
+		            	<input class="hiddenForm" type="hidden" name="projectNames">
+		            </form>
+		            <!-- 프로젝트 list submit -->
+                    
                     <!-- 새 플젝 추가 -->
                     <div class="addProject">
                             <a id="RegistrationModalBtn"><i class="fas fa-plus-circle"> 새 프로젝트 추가</i></a>
@@ -144,23 +163,23 @@
                                 <div class="cardheader">
                                 	<img src="<c:url value="/resources/img/main/background2.jpeg" />"
  											style="background-size: cover; height: 135px; 
-    background-repeat: no-repeat;"/>
+  											background-repeat: no-repeat;"/>
                                 </div>
                                 <div class="avatar">
                                     <img src="<c:url value="/resources/img/main/profile.jpeg" />"/>
                                 </div>
                                 <div class="info">
                                     <div class="title">
-                                        <a target="_blank" href="https://scripteden.com/">송원석</a>
+                                        <a target="_blank" href="https://scripteden.com/"><c:out value="${ myPageVO.nickname }" /></a>
                                     </div>
-                                    <div class="desc">wonseok Song</div>
-                                    <div class="desc">1993.10.12</div>
-                                    <div class="desc">rkagh93@naver.com</div>
-                                    <h4>"Beat the Bit!"</h4>
+                                    <div class="desc"><c:out value="${ myPageVO.login_name }" /></div>
+                                    <div class="desc"><c:out value="${ myPageVO.dob }" /></div>
+                                    <div class="desc"><c:out value="${ myPageVO.login_email }" /></div>
+                                    <h4><c:out value="${ myPageVO.motto }" /></h4>
                                 </div>
                                 <div class="bottom">
                                     <a>
-                                        <a href="MyPage.html"><img src="<c:url value="/resources/img/main/kakaotalk.png" />"/></a>
+                                        <a href="<c:url value="/myPage.do" />"><img src="<c:url value="/resources/img/main/kakaotalk.png" />"/></a>
                                     </a>
                                 </div>
                             </div>
