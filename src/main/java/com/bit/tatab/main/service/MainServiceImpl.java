@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.bit.tatab.main.dao.MainDAO;
 import com.bit.tatab.main.vo.CommentVO;
+import com.bit.tatab.main.vo.MainBackgroundVO;
 import com.bit.tatab.main.vo.ProjectVO;
 
 
@@ -38,6 +39,21 @@ public class MainServiceImpl implements MainService{
 		// TODO Auto-generated method stub
 		mainDao.modifyComment(commentVO);
 	}
+
+	@Override
+	public void modifyBackgroundImage(MainBackgroundVO mainBackgroundVO) {
+		mainDao.modifyBackgroundImage(mainBackgroundVO);
+		
+	}
+
+	@Override
+	public MainBackgroundVO findBackgroundImage(String login_email) {
+		MainBackgroundVO backgroundImage = mainDao.findBackgroundImage(login_email);
+		return backgroundImage;
+		
+	}
+	
+	
  
 	
 

@@ -3,6 +3,7 @@ package com.bit.tatab.main.dao;
 import java.util.List;
 
 import com.bit.tatab.main.vo.CommentVO;
+import com.bit.tatab.main.vo.MainBackgroundVO;
 import com.bit.tatab.main.vo.ProjectVO;
 
 public interface MainDAO {
@@ -18,6 +19,12 @@ public interface MainDAO {
 	
 	// 해당 id가 속한 프로젝트 리스트 불러오기
 	public List<ProjectVO> selectAllProject(String login_email);
+
+	// 배경 이미지 업로드
+	public void modifyBackgroundImage(MainBackgroundVO mainBackgroundVO);
+
+	// 배경 이미지 불러오기
+	public MainBackgroundVO findBackgroundImage(String login_email);
 
 	
 }

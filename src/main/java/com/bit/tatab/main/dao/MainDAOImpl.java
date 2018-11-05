@@ -12,6 +12,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.bit.tatab.main.vo.CommentVO;
+import com.bit.tatab.main.vo.MainBackgroundVO;
 import com.bit.tatab.main.vo.ProjectVO;
 
 
@@ -53,6 +54,17 @@ public class MainDAOImpl implements MainDAO {
 	@Override
 	public void modifyComment(CommentVO commentVO) {
 		sqlSession.update("modifyComment", commentVO);
+	}
+
+	@Override
+	public void modifyBackgroundImage(MainBackgroundVO mainBackgroundVO) {
+		sqlSession.insert("modifyBackgroundImage", mainBackgroundVO);
+	}
+
+	@Override
+	public MainBackgroundVO findBackgroundImage(String login_email) {
+		MainBackgroundVO backgroundImage = sqlSession.selectOne("findBackgroundImage", login_email);
+		return backgroundImage;
 	}
 	
 	

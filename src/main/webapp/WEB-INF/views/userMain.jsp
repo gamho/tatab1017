@@ -6,8 +6,8 @@
 <head>
     <title>Project? You better TATAB.</title>
     <link rel="shortcut icon" href="/resources/img/main/favicon.ico" >
-    <link href="<c:url value="/resources/css/main/UserMain.css" />" rel="stylesheet">
-    <!-- MyPage 관련 -->
+    <link href="<c:url value="/resources/css/main/UserMain.css?var=1" />" rel="stylesheet">
+    <!-- MyPage 관련 -->	
     <link href="<c:url value="/resources/css/main/MyPageModal.css" />" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- MyPage 관련 끝 -->
@@ -25,9 +25,12 @@
     <!-- MainComment 관련 -->
     <link href="<c:url value="/resources/css/main/MainCommentModal.css" />" rel="stylesheet">
     <!-- MainComment 관련 끝 -->
+    <!-- BackgroundImage 관련 -->
+    <link href="<c:url value="/resources/css/main/BackgroundImageModal.css?var=7" />" rel="stylesheet">
+    <!-- BackgroundImage 관련 끝 -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Cedarville+Cursive|Gothic+A1" rel="stylesheet">
-    <script src="<c:url value="/resources/js/main/UserMain.js" />"></script>
+    <script src="<c:url value="/resources/js/main/UserMain.js?var=2" />"></script>
     
     <style>
 	.card.hovercard .cardheader {
@@ -48,15 +51,45 @@
 			$('.hiddenProjectName').submit();
 			return false;
     	}
+    	  
+        // 파일 정책위반 테스트 액션
+        function fileCheck(){
+            console.log('파일체크 시작!!');
+            var fileNm = $('#file').val();
+            console.log(fileNm);
+
+               if (fileNm != "") {
+                      
+                  var ext = fileNm.slice(fileNm.lastIndexOf(".") + 1).toLowerCase();
+                      
+                  if (!(ext == "gif" || ext == "jpg" || ext == "png")) {
+                      alert("이미지파일 (.jpg, .png, .gif ) 만 업로드 가능합니다.");
+                      return false;
+                  }
+               return true;
+               }
+         }
+        
     </script>
     
+<!--     <meta http-equiv="Cache-Control" content="no-cache"/> -->
+<!-- <meta http-equiv="Expires" content="0"/> -->
+<!-- <meta http-equiv="Pragma" content="no-cache"/> -->
+
 </head>
 <body>
     <!-- 제일 상위 등급 div -->
     <div id="mainWrapper">
         <!-- 배경이미지 -->
         <div class="background">
-            <img src="https://t1.daumcdn.net/cfile/tistory/195822124CECE3C32C">
+        	<c:choose>
+        		<c:when test="${empty backgroundImage.save_name}">
+        			<img src="https://t1.daumcdn.net/cfile/tistory/195822124CECE3C32C">
+        		</c:when>
+        		<c:otherwise>
+        			<img src="${pageContext.request.contextPath}/img/${backgroundImage.save_name}">
+        		</c:otherwise>
+        	</c:choose>
         </div>
         <!-- 배경이미지 끝 -->
         <!-- 배경이미지 제외 맨 위 div -->
@@ -72,12 +105,12 @@
                     <div class="logoAndPhrase">
                         <!-- 로고 -->
                         <div class="titleLogo">
-                            <a href="<c:url value="/board/userMain.do" />"><i class="fas fa-check-double"></i></a>
+                            <a href="<c:url value="/userMain.do" />"><i class="fas fa-check-double"></i></a>
                         </div>
                         <!-- 로고 끝 -->
                         <!-- 제목 -->
                         <div class="titlePhrase">
-                            <a href="<c:url value="/board/userMain.do" />"><h2>&nbsp;TATAB&nbsp;!</h2></a>
+                            <a href="<c:url value="/userMain.do" />"><h2>&nbsp;TATAB&nbsp;!</h2></a>
                         </div>
                         <!-- 제목 끝 -->
                         <!-- 플젝 표시 -->
@@ -146,6 +179,11 @@
                     <a id="MainCommentModalBtn"><i class="fas fa-baseball-ball"></i></a>
                 </div>
                 <!-- 코멘트 수정 아이콘 끝 -->
+                <!-- 배경 이미지 변경 아이콘 -->
+                <div class="BackgroundImage">
+                    <a id="BackgroundImageModalBtn"><i class="fas fa-baseball-ball"></i></a>
+                </div>
+                <!-- 배경 이미지 변경 아이콘 끝 -->
                 <!-- 아래 공백 부분 -->
                 <div class="emptyFooter">
                     Copyright ⓒ 2018. BeatTheBit. All rights reserved.
@@ -221,9 +259,10 @@
                         </fieldset>
                         <fieldset id="buttons">
                             <input type="submit" class="btn btn-primary" value="생성">
-                            <a class="btn btn-light" href="UserMain.html" role="button">취소</a>
+                            <a class="btn btn-light" href="<c:url value="/userMain.do" />" role="button">취소</a>
                         </fieldset>
                     </form>
+                    
                 </div>
             </div>
             <!-- Registration 해당 컨텐츠 끝 -->
@@ -253,7 +292,7 @@
                         </fieldset>
                         <fieldset id="buttons">
                             <input type="submit" class="btn btn-primary" value="수정">
-                            <a class="btn btn-light" href="UserMain.html" role="button">취소</a>
+                            <a class="btn btn-light" href="<c:url value="/userMain.do" />" role="button">취소</a>
                         </fieldset>
                     </form>
                 </div>
@@ -261,6 +300,28 @@
             <!-- MainComment 해당 컨텐츠 끝 -->
         </div>
         <!-- 네번째 모달 끝 -->
+        <!-- 다섯번째 모달 : BackgroundImage -->
+        <div id="BackgroundImageModal" class="BackgroundImageModal">
+        	<!-- BackgroundImage 해당 컨텐츠 -->
+            <div class="BackgroundImageModalContent">
+                <div class="container">
+                    <form id="contact" action="modifyBackgroundImage.do" method="post"
+                        enctype="multipart/form-data" onsubmit = "return fileCheck()">
+                        <fieldset class="form-group">
+                            <h3>배경이미지 변환</h3>
+                            <input type="file" class="form-control-file" id="file" name="file"
+                            accept="image/gif, image/jpeg, image/png"> <!-- accept : 이미지파일만 할 수 있도록! -->
+                          </fieldset>
+                        <fieldset id="buttons">
+                            <input type="submit" class="btn btn-primary" value="수정">
+                            <a class="btn btn-light" href="<c:url value="/userMain.do" />" role="button">취소</a>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <!-- BackgroundImage 해당 컨텐츠 끝 -->
+        </div>
+        <!-- 다섯번째 모달 끝 -->
     </div>
     <!-- 제일 상위 등급 div 끝 -->
 </body>
