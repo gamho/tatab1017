@@ -42,22 +42,32 @@ $(function () {
         +'</div>';
     
 
-    $('fa-plus-circle, .add').click(function() {
+    var lastCol;
+        var mouseAction = true;
+    
+    $('.col_add').click(function (e) {
         console.log('col 추가 작업 수행');
+
+        var addCol = $(addColTag).hide().appendTo("#kanban-col-box").show("fade", 300);
+
+        lastCol = $('.add-col:last');
         
-        var addCol = $(addColTag).hide().appendTo("#kanban-col-box");
         
-        addCol.show("fade", 300);
-        /*
-        if( $('html').click(function(e) 
-        		{ if( !$(e.target).hasClass(addCol) )
-        		{ if( $(e.target)!=$('.kanban-col').last() ) { 
-        			alert('영역 밖입니다.'); 
-        			}
-        		}
-        ));
-        */	
-        console.log('col 추가 작업 수행 완료!');
+        $(document).on("mouseover", '.add-col:last', function(e) {
+            mouseAction = true;
+        });
         
+        $(document).on("mouseout", '.add-col:last', function(e) {
+            mouseAction = false;
+        });
+        
+        $(document).on("click", lastCol, function(e) {
+            if(mouseAction == false) {
+                console.log('추가된 컬럼 외부영역 클릭');
+            }
+        });
+        
+        console.log('클릭이벤트 종료');
     });
+
 });

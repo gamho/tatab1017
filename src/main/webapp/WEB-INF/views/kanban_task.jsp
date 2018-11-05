@@ -7,8 +7,6 @@
 </head>
 	<!-- css 참조 -->
 	<link rel="stylesheet" type="text/css" href="resources/css/board/kanban_task_css.css">
-    <!-- script 참조 -->
-    <script src="resources/js/board/kanban_task_js.js"></script>
 
 <body>
 

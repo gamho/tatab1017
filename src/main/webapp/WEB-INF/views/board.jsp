@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <!-- script 참조 -->
     <script src="resources/js/jquery-3.3.1.min.js"></script>
+    <script src="resources/js/jquery-ui.min.js"></script>
+    
     <script src="resources/js/board/boardjs.js"></script>
     <script src="resources/js/topMenu/topMenu.js"></script>
     
@@ -62,7 +64,7 @@
 	                
 	                <div class="add-col-box" id="kanban-col-box">
 	                </div>
-	                    <a href="#"><i class="fas fa-plus-circle add"></i></a>
+	                    <a href="#"><i class="fas fa-plus-circle add col_add"></i></a>
 	            </div>
 	            <!-- kanban 끝 -->
 	        </div>

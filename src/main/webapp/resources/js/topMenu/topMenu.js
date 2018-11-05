@@ -12,8 +12,6 @@ $(document).ready(function() {
     var manageSpan = document.getElementsByClassName("close")[0];               
     // When the user clicks on the button, open the modal 
     projectsBtn.onclick = function() {
-    	
-    	console.log('dddddddddddddddddddddd');
         projectsModal.style.display = "block";
     }
     manageBtn.onclick = function() {
